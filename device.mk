@@ -16,8 +16,24 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-# common msm8660 configs
+# Files which override msm8660
+
+## New Adreno Drivers
+PRODUCT_COPY_FILES += \
+    device/htc/shooteru/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
+    device/htc/shooteru/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
+    device/htc/shooteru/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
+    device/htc/shooteru/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+    device/htc/shooteru/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
+    device/htc/shooteru/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
+    device/htc/shooteru/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
+    device/htc/shooteru/firmware/vidc_1080p.fw:system/etc/firmware/vidc_1080p.fw
+
+
+# common msm8660 configs - ignoring property overrides
+IGNORE_MSM8660_PROPERTIES := $(PRODUCT_PROPERTY_OVERRIDES)
 $(call inherit-product, device/htc/msm8660-common/msm8660.mk)
+PRODUCT_PROPERTY_OVERRIDES := $(IGNORE_MSM8660_PROPERTIES)
 
 ## The gps config appropriate for this device
 PRODUCT_COPY_FILES += device/common/gps/gps.conf_EU:system/etc/gps.conf
@@ -36,15 +52,6 @@ PRODUCT_COPY_FILES += \
     device/htc/shooteru/init.shooteru.rc:root/init.shooteru.rc \
     device/htc/shooteru/init.shooteru.usb.rc:root/init.shooteru.usb.rc \
     device/htc/shooteru/ueventd.shooteru.rc:root/ueventd.shooteru.rc
-
-## New Adreno Drivers
-PRODUCT_COPY_FILES += \
-    device/htc/shooteru/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
-    device/htc/shooteru/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
-    device/htc/shooteru/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
-    device/htc/shooteru/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
-    device/htc/shooteru/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
-    device/htc/shooteru/firmware/vidc_1080p.fw:system/etc/firmware/vidc_1080p.fw
 
 ## We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -122,9 +129,11 @@ PRODUCT_COPY_FILES += \
     device/htc/shooteru/dsp/soundimage/srs_global.cfg:system/etc/soundimage/srs_global.cfg \
     device/htc/shooteru/dsp/soundimage/srsfx_trumedia_voice.cfg:system/etc/soundimage/srsfx_trumedia_voice.cfg
 
-# Custom media config for HTC camera
+# Custom media config
 PRODUCT_COPY_FILES += \
-    device/htc/shooteru/configs/media_profiles.xml:system/etc/media_profiles.xml
+     device/htc/shooteru/configs/media_profiles.xml:system/etc/media_profiles.xml \
+     device/htc/shooteru/configs/media_codecs.xml:system/etc/media_codecs.xml \
+     device/htc/shooteru/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # keylayouts
 PRODUCT_COPY_FILES += \

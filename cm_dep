@@ -1,7 +1,0 @@
-[
-  {
-    "repository": "android_kernel_htc_shooter_u",
-    "target_path": "kernel/htc/shooteru",
-    "branch": "master"
-  }
-]
