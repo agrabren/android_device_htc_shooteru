@@ -35,6 +35,9 @@ IGNORE_MSM8660_PROPERTIES := $(PRODUCT_PROPERTY_OVERRIDES)
 $(call inherit-product, device/htc/msm8660-common/msm8660.mk)
 PRODUCT_PROPERTY_OVERRIDES := $(IGNORE_MSM8660_PROPERTIES)
 
+# 3D Boot Animation
+PRODUCT_COPY_FILES += device/htc/shooteru/prebuilt/bootanimation.zip:system/media/bootanimation.zip
+
 ## The gps config appropriate for this device
 PRODUCT_COPY_FILES += device/common/gps/gps.conf_EU:system/etc/gps.conf
 
