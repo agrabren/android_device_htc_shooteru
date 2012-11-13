@@ -2,6 +2,7 @@
 # system.prop for device
 #
 #
+debug.enabletr=false
 debug.sf.hw=1
 debug.composition.type=c2d
 ro.sf.compbypass.enable=0
