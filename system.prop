@@ -2,10 +2,6 @@
 # system.prop for device
 #
 #
-debug.enabletr=false
-debug.sf.hw=1
-debug.composition.type=c2d
-ro.sf.compbypass.enable=0
 dev.pm.dyn_samplingrate=1
 lpa.use-stagefright=true
 lpa.decode=true
