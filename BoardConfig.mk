@@ -146,6 +146,7 @@ BOARD_WLAN_DEVICE_REV            := bcm4329
 
 # Bootanimation
 TARGET_BOOTANIMATION_PRELOAD := true
+TARGET_BOOTANIMATION_TEXTURE_CACHE := false
 
 # Custom LUN File Path
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun0/file
